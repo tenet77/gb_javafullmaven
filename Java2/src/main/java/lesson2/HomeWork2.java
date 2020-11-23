@@ -15,9 +15,17 @@ public class HomeWork2 {
 
     public static class MyArrayDataException extends Exception {
 
+        private final int X;
+        private final int Y;
+
+        public MyArrayDataException(int x, int y) {
+            X = x;
+            Y = y;
+        }
+
         @Override
         public String getMessage() {
-            return "Check data in array";
+            return String.format("Check data in cell (%d, %d)", X, Y);
         }
 
     }
@@ -26,13 +34,13 @@ public class HomeWork2 {
 
         if (ar.length != 4) throw new MyArraySizeException();
         int result = 0;
-        for (String[] strings : ar) {
-            if (strings.length != 4) throw new MyArraySizeException();
-            for (String string : strings) {
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i].length != 4) throw new MyArraySizeException();
+            for (int j = 0; j < ar[i].length; j++) {
                 try {
-                    result += Integer.parseInt(string);
+                    result += Integer.parseInt(ar[i][j]);
                 } catch (Exception e) {
-                    throw new MyArrayDataException();
+                    throw new MyArrayDataException(i, j);
                 }
             }
         }
