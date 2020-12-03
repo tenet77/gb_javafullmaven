@@ -17,7 +17,7 @@ public class HomeWork4 extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("messenger.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("messenger.fxml"));
         primaryStage.setTitle("Messenger");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
