@@ -1,0 +1,33 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+
+<VBox fx:controller="lesson4.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+    <AnchorPane xmlns:fx="http://javafx.com/fxml">
+        <MenuBar AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+            <Menu text="File">
+                <MenuItem text="New" onAction="#menuNew"/>
+                <MenuItem text="Quit" onAction="#menuQuit"/>
+            </Menu>
+        </MenuBar>
+    </AnchorPane>
+    <TextArea fx:id="mainTextArea" VBox.vgrow="ALWAYS" editable="false"/>
+    <HBox>
+        <Label text="Message: " textAlignment="CENTER" alignment="CENTER" HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="messageField" HBox.hgrow="ALWAYS" onAction="#btnSendClickAction"/>
+        <Button text="Send" HBox.hgrow="ALWAYS" onAction="#btnSendClickAction"/>
+    </HBox>
+</VBox>
