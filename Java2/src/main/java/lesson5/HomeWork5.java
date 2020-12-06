@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class HomeWork5 {
 
     static final int size = 10_000_000;
-    static final int h = size / 2;
+    static final int h = size / 3;
 
     public static class MyThread implements Runnable {
 
@@ -60,22 +60,27 @@ public class HomeWork5 {
 
         float[] a1 = new float[h];
         float[] a2 = new float[h];
+        float[] a3 = new float[h];
 
         System.arraycopy(arr, 0, a1, 0, h);
         System.arraycopy(arr, h, a2, 0, h);
+        System.arraycopy(arr, h * 2, a3, 0, h);
 
         System.out.println("Method 2 split array : " + (System.currentTimeMillis() - a) + " ms");
 
         Thread t1 = new Thread(new MyThread(a1, 1));
         Thread t2 = new Thread(new MyThread(a2, 2));
+        Thread t3 = new Thread(new MyThread(a3, 3));
 
         t1.start();
         t2.start();
+        t3.start();
 
         a = System.currentTimeMillis();
 
         t1.join();
         t2.join();
+        t3.join();
 
         System.out.println("Method 2 process done : " + (System.currentTimeMillis() - a) + " ms");
 
@@ -83,6 +88,7 @@ public class HomeWork5 {
 
         System.arraycopy(a1, 0, arr, 0, h);
         System.arraycopy(a2, 0, arr, h, h);
+        System.arraycopy(a3, 0, arr, h * 2, h);
 
         System.out.println("Method 2 paste array : " + (System.currentTimeMillis() - a) + " ms");
 
