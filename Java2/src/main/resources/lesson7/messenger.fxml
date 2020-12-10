@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="center" prefHeight="390.0" prefWidth="245.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="lesson7.ChatController">
+    <AnchorPane xmlns:fx="http://javafx.com/fxml">
+        <MenuBar AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+            <Menu text="File">
+                <MenuItem onAction="#menuNew" text="New" />
+                <MenuItem onAction="#menuQuit" text="Quit" />
+            </Menu>
+        </MenuBar>
+    </AnchorPane>
+    <TextArea fx:id="mainTextArea" editable="false" prefHeight="181.0" prefWidth="69.0" VBox.vgrow="ALWAYS" />
+    <HBox>
+        <TextField fx:id="messageField" onAction="#btnSendClickAction" HBox.hgrow="ALWAYS" />
+        <Button onAction="#btnSendClickAction" text="Send" HBox.hgrow="ALWAYS" />
+    </HBox>
+</VBox>
