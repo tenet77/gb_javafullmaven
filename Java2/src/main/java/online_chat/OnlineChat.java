@@ -1,9 +1,6 @@
 package online_chat;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class OnlineChat extends Application {
@@ -14,6 +11,8 @@ public class OnlineChat extends Application {
     }
 
     public static void main(String[] args) {
+        ChatServer chatServer = new ChatServer();
+        new Thread(chatServer).start();
         launch(args);
     }
 }
